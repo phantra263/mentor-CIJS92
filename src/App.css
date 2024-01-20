@@ -1,21 +1,71 @@
-input {
-  outline: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container {
-  width: 80%;
-  margin: auto;
-  border: 1px solid #eee;
-  padding: 40px;
-}
-.header{
-  width: 100%;
+body {
   padding: 10px;
-  border: 0;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 30px;
 }
-.footer {
+
+header {
+  text-align: center;
+  font-size: 30px;
+  background: aquamarine;
+  padding: 20px;
+}
+
+main .container{
+  display: flex;
+  margin-bottom: 10px;
+}
+main .content-left{
+  padding: 10px;
+  flex: 1;
+}
+main aside {
+  width: calc(25% - 5px);
+  background: rgb(207, 124, 35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+main h1 {
+  padding: 20px;
+  font-size: 25px;
+  background: #eee;
+  margin-bottom: 20px;
+  border: 3px solid red;
+}
+main .wrap-content {
+  margin-bottom: 20px;
+}
+main .wrap-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+main .wrap-content p {
+  font-size: 15px;
+}
+.list-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.list-box .box {
+  width: 25%;
+  min-height: 200px;
+  background: rgb(206, 206, 86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  text-align: center;
+  font-size: 30px;
+  background: rgb(20, 118, 210);
+  padding: 20px;
 }

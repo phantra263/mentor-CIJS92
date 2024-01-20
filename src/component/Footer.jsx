@@ -1,10 +1,7 @@
 import React from 'react'
 
-export const Footer = ({count}) => {
+export const Footer = () => {
   return (
-    <div className='footer'>
-        <span>{count} task left</span>
-        <p>Mindx Todolist</p>
-    </div>
+    <footer>FOOTER</footer>
   )
 }

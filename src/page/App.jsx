@@ -1,43 +1,64 @@
 import '../App.css'
+import { Box } from '../component/Box'
 import { Content } from '../component/Content'
 import { Footer } from '../component/Footer'
 import { Header } from '../component/Header'
+import { Sidebar } from '../component/Sidebar'
 
 function App() {
-  let listTask = [{
-    checked: true,
-    name: 'task 1',
+  let listItem = [{
+    title: 'Title 1',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nesciunt magnam quibusdam provident ipsam asperiores iste saepe pariatur sunt? Minus incidunt, ',
     id: 1
   },
   {
-    checked: true,
-    name: 'task 2',
+    title: 'Title 2',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nesciunt magnam quibusdam provident ipsam asperiores iste saepe pariatur sunt? Minus incidunt, ',
     id: 2
   },
   {
-    checked: true,
-    name: 'task 3',
+    title: 'Title 3',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nesciunt magnam quibusdam provident ipsam asperiores iste saepe pariatur sunt? Minus incidunt, ',
+    id: 3
+  }];
+
+  let listBox = [{
+    title: 'BOX 1',
+    id: 1
+  },
+  {
+    title: 'BOX 2',
+    id: 2
+  },
+  {
+    title: 'BOX 3',
     id: 3
   },
   {
-    checked: false,
-    name: 'task 4',
+    title: 'BOX 4',
     id: 4
   }]
-  let taskDone = 0;
 
   return (
-    <div className='container'>
-      <Header/> 
-      <div className='main'>
-        {listTask.map((data) => {
-          return data.id === 3 ?  <Content item={data} key={data.id}>
-            <span>important</span>
-            </Content> : <Content item={data} key={data.id}/>
-        })}
-      </div>
-      <Footer count={taskDone}/>
-    </div>
+    <>
+      <Header />
+      <main>
+        <div className='container'>
+          <div className='content-left'>
+            <h1>Đây là title</h1>
+            <div className='list-intro'>
+              {listItem.map(item => <Content data={item} key={item.id} />)}
+            </div>
+          </div>
+          <Sidebar />
+        </div>
+
+        <div className='list-box'>
+          {listBox.map(item => <Box data={item} key={item.id}/>)}
+        </div>
+      </main>
+      <Footer />
+    </>
   )
 }
 
