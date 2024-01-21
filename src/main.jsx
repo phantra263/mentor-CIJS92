@@ -6,7 +6,7 @@ import { TrafficLights } from './page/TrafficLights.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    // <App />
-    <TrafficLights />
+    <App />
+    // <TrafficLights />
   // </React.StrictMode>,
 )

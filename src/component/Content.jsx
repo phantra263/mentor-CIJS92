@@ -2,7 +2,8 @@ import React from 'react'
 
 export const Content = ({item, ...props}) => {
   const handleChange = () => {
-    console.log(1)
+    item.checked = !item.checked;
+    props.onChange(item);
   }
   return (
     <div>
@@ -11,8 +12,6 @@ export const Content = ({item, ...props}) => {
         {
           item.checked ? (<span>DONE</span>) : ('')
         }
-
-        {props.children}
     </div>
   )
 }
