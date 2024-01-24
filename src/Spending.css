@@ -1,0 +1,50 @@
+.header {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.header select {
+    outline: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.chart {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #E1CAE4;
+    border-radius: 12px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.chart .item-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+}
+.chart .item-bar .wrap-bar {
+    width: 20px;
+    height: 140px;
+    border-radius: 10px;
+    background: #BAA5ED;
+    border: 1px solid #222;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.chart .item-bar .wrap-bar .bar {
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    display: inline-block;
+    height: 100%;
+    width: inherit;
+    background: #3D15A9;
+    background-size: 50%;
+}
