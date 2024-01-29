@@ -3,49 +3,66 @@ import { Controller } from '../component/Controller'
 import { Chart } from '../component/Chart'
 import { v4 as uuidv4 } from 'uuid';
 import { Content } from '../component/Content';
+let listData = [
+  {
+    id: uuidv4(),
+    nameSpending: 'task1',
+    amount: 10, 
+    date: '02-02-2022'
+  },
+  {
+    id: uuidv4(),
+    nameSpending: 'task1',
+    amount: 20,
+    date: '01-02-2021'
+  }
+];
 
 export const Spending = () => {
-  const listData = [
-    {
-      id: uuidv4(),
-      name: 'task1',
-      amount: 10,
-      date: '02-02-2022'
-    },
-    {
-      id: uuidv4(),
-      name: 'task1',
-      amount: 20,
-      date: '01-02-2021'
-    }
-  ];
 
+  const [yearFilter, setYearFilter] = useState('2022');
   let [listDataFilter, setListDataFilter] = useState([]);
+  const listYear = ['2021', '2022', '2023', '2024'];
+
   const handleAddItem = (item) => {
-    item.id = uuidv4();
     listData.unshift(item);
-    setListData([...listData]);
-  }
-  const handleFilter = (data) => {
     listDataFilter = listData.filter(item => {
-      let date = new Date(item.date)
-      console.log(date.getFullYear());
-      if(date.getFullYear().toString() === data) {
+      let yearItem = (new Date(item.date)).getFullYear();
+      if (yearItem.toString() === yearFilter) {
         return item;
       }
     })
-
-    console.log(listDataFilter);
+    setListDataFilter([...listDataFilter]);
   }
 
-  console.log(1);
+  const handleChangeSelect = (e) => {
+    setYearFilter(e.target.value);
+    listDataFilter = listData.filter(item => {
+      let yearItem = (new Date(item.date)).getFullYear();
+      if (yearItem.toString() === e.target.value) {
+        return item;
+      }
+    }) 
+    setListDataFilter([...listDataFilter]);
+  }
+
+
+
   return (
     <div className='container'>
-        <Controller addItem={handleAddItem}/>
-        <div className='main'>
-            <Chart filter={handleFilter}/>
+      <Controller addItem={handleAddItem} />
+
+      <div className='header'>
+        <span>Filter by year</span>
+
+        <select name="cars" id="cars" value={yearFilter} onChange={handleChangeSelect}>
+          {listYear.map((item, index) => (<option value={item} key={index}>{item}</option>))}
+        </select>
+      </div>
+      <div className='main'>
+            {/* <Chart filter={handleFilter} yearFilter={yearFilter}/> */}
             <div className='list-data'>
-              {listData.map(item => (
+              {listDataFilter.map(item => (
                 <Content data={item} key={item.id}/>
               ))}
             </div>

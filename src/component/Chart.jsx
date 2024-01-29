@@ -3,7 +3,6 @@ import '../Spending.css'
 
 export const Chart = (props) => {
     const listYear = [2021, 2022, 2023, 2024];
-    const [yearFilter, setYearFilter] = useState('2021');
     const listData = [
         {
             id: 1,
@@ -66,21 +65,17 @@ export const Chart = (props) => {
             sum: 200
         }
     ]
-    console.log(yearFilter);
-    // bắn ra ngoài cái năm hiện tại khi render lần đầu tiên
-    props.filter(yearFilter);
 
     const maxSum = 600;
     const handleChange = (e) => {
-        setYearFilter(e.target.value);
-        props.filter(yearFilter);
+        props.filter(e.target.value);
     }
     return (
         <>
             <div className='header'>
                 <span>Filter by year</span>
 
-                <select name="cars" id="cars" value={yearFilter} onChange={handleChange}>
+                <select name="cars" id="cars" value={props.yearFilter} onChange={handleChange}>
                     {listYear.map((item, index) => (<option value={item} key={index}>{item}</option>))}
                 </select>
             </div>

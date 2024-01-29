@@ -1,3 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input {
+    outline: 0;
+}
+
+body {
+    background: #323232;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+    padding: 30px;
+}
+
+.main {
+    background: #000;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 50px;
+    color: #fff;
+}
+
 .header {
     color: #fff;
     display: flex;
@@ -5,6 +33,7 @@
     justify-content: space-between;
     margin-bottom: 20px;
 }
+
 .header select {
     outline: none;
     cursor: pointer;
@@ -12,6 +41,7 @@
     font-weight: bold;
     font-size: 18px;
 }
+
 .chart {
     display: flex;
     justify-content: space-between;
@@ -21,12 +51,14 @@
     color: #fff;
     margin-bottom: 20px;
 }
+
 .chart .item-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #000;
 }
+
 .chart .item-bar .wrap-bar {
     width: 20px;
     height: 140px;

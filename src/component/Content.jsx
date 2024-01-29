@@ -3,14 +3,14 @@ import '../Content.css'
 
 export const Content = ({data}) => {
   // Array of month names
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
+  // const monthNames = [
+  //   'January', 'February', 'March', 'April', 'May', 'June',
+  //   'July', 'August', 'September', 'October', 'November', 'December'
+  // ];
 
   const dateObject = new Date(data.date);
   const day = dateObject.getDate();
-  const month = monthNames[(dateObject.getMonth() + 1) - 1]; // tháng bắt đầu từ 0 
+  const month = dateObject.toLocaleDateString('en-us', {month: 'long'}); // tháng bắt đầu từ 0 
   const year = dateObject.getFullYear();
   return (
     <div className='item'>

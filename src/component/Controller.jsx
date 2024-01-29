@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import '../Controller.css'
+import { v4 as uuidv4 } from 'uuid';
 
 export const Controller = (props) => {
     const [flag, setFlag] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
+        id: uuidv4(),
+        nameSpending: '',
         amount: '',
         date: ''
     })
+
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setFormData((prev) => {
             return {
                 ...prev,
@@ -17,23 +20,30 @@ export const Controller = (props) => {
             }
         })
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
         props.addItem(formData);
+        setFormData({
+            id: uuidv4(),
+            nameSpending: '',
+            amount: '',
+            date: ''
+        })
     }
   return (
     <>
        <div className='controller'>
          {
-            !flag ? (<button onClick={() => setFlag(!flag)}>ADD NEW EXPENSE</button>) :
+            !flag ? 
+            (<button onClick={() => setFlag(!flag)}>ADD NEW EXPENSE</button>) :
             (<form className='form-add' onSubmit={handleSubmit}>
                 <div className='form-control'>
                     <label htmlFor="name">Name</label>
-                    <input type="text" name='name' 
+                    <input type="text" name='nameSpending' 
                     onChange={handleChange}
-                    value={formData.name}
-                    id='name' 
+                    value={formData.nameSpending}
+                    id='nameSpending' 
                     placeholder='Enter name  here ...' />
                 </div>
                 <div className='form-control'>
@@ -57,8 +67,6 @@ export const Controller = (props) => {
                 <button type='button' onClick={() => setFlag(!flag)}>CANCEL</button>
             </form>)
          }
-         
-
         </div>
     </>
   )
